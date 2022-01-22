@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview --port 8080"
+    "serve": "vite preview --port 8080",
+    "start": "node main.js",
   },
   "devDependencies": {
     "vite": "^2.3.0"
