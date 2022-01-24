@@ -111,6 +111,13 @@ blockquote a {
   font-size: 2rem;
 }
 
+@media only screen and (max-device-width: 480px) {
+    html {
+      height: calc(100% + 60px);
+      min-height: calc(100% + 60px);
+    }
+}
+
 @media screen and (max-width: 1024px)  {
   :root {
     --spacing: 100px;
