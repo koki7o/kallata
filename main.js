@@ -74,7 +74,7 @@ scene.background = spaceTexture;
 
 // Avatar
 
-const myTexture = new THREE.TextureLoader().load("koki7o.png");
+const myTexture = new THREE.TextureLoader().load("koki7o.jpg");
 
 const me = new THREE.Mesh(
   new THREE.BoxGeometry(3, 3, 3),
