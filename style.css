@@ -122,6 +122,10 @@ blockquote a {
     height: calc(100% + 60px);
     min-height: calc(100% + 60px);
   }
+
+  .left {
+    grid-column: 2/11;
+  }
 }
 
 @media screen and (max-width: 1024px) {
