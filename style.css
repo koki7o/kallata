@@ -143,6 +143,10 @@ blockquote a {
     font-size: 2rem;
   }
 
+  .social {
+    font-size: 1.5rem;
+  }
+
   section {
     grid-column: 2/11;
   }
