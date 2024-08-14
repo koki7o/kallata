@@ -98,6 +98,14 @@ blockquote p {
   padding: 15px;
 }
 
+.top-text {
+  border-radius: 20px 20px 0px 0px;
+}
+
+.bottom-text {
+  border-radius: 0px 0px 20px 20px;
+}
+
 .left {
   grid-column: 6 / 12;
 }
@@ -112,8 +120,11 @@ blockquote a {
   font-size: 2rem;
 }
 
+.spacer {
+  display: none
+}
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 480px) {
   html {
     height: calc(100% + 60px);
     min-height: calc(100% + 60px);
@@ -125,7 +136,28 @@ blockquote a {
   }
 
   .left {
-    grid-column: 2/11;
+    grid-column: 2/12;
+  }
+
+  .right {
+    grid-column: 2/12;
+  }
+
+  section {
+    grid-column: 2/12 !important;
+  }
+
+  blockquote {
+    grid-column: 2/12;
+  }
+
+  blockquote p {
+    font-size: 1.5rem;
+    padding: 8px;
+  }
+
+  .separator {
+    display: none
   }
 }
 
@@ -135,7 +167,7 @@ blockquote a {
   }
 
   header {
-    font-size: 1rem;
+    font-size: 1.5rem;
     width: 100%;
   }
 
@@ -145,9 +177,22 @@ blockquote a {
 
   .social {
     font-size: 1.5rem;
+    display: block;
+    margin-top: 20px
   }
 
   section {
     grid-column: 2/11;
+  }
+}
+
+@media (max-width: 768px) {
+  blockquote p {
+    font-size: 1.5rem;
+    padding: 20px;
+  }
+
+  .separator {
+    display: none
   }
 }
