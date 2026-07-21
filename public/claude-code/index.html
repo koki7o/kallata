@@ -807,18 +807,9 @@
                 <h2>Send me the free pack</h2>
                 <p>Enter your email and I'll send all three PDFs straight to your inbox.</p>
 
-                <!--
-          ┌─────────────────────────────────────────────────────────────────┐
-          │  CONVERTKIT SETUP - replace YOUR_FORM_ID below with the numeric   │
-          │  form ID from your ConvertKit (Kit) account.                      │
-          │                                                                   │
-          │  Find it: Kit dashboard → Grow → Landing Pages & Forms → your     │
-          │  form → the URL / embed shows a number like 1234567.              │
-          │                                                                   │
-          │  Paste that number in data-ck-form-id - nothing else to change.   │
-          └─────────────────────────────────────────────────────────────────┘
-        -->
-                <form class="ck" id="ck-form" data-ck-form-id="YOUR_FORM_ID" method="post" novalidate>
+                <!-- Kit (ConvertKit) form. data-ck-form-id is the numeric form ID;
+                     the subscribe endpoint is derived from it in the script below. -->
+                <form class="ck" id="ck-form" data-ck-form-id="9708164" method="post" novalidate>
                     <input type="email" name="email_address" placeholder="you@example.com" required
                         autocomplete="email" aria-label="Email address" />
                     <button type="submit" class="btn btn-primary" id="ck-submit">Send the PDFs →</button>

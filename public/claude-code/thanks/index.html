@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Thank-you pages shouldn't rank or leak into search -->
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/claude-code/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/claude-code/favicon.ico" />
+    <link rel="apple-touch-icon" href="/claude-code/apple-touch-icon.png" />
+    <title>You're in - your Claude Code pack | The Dev Founder</title>
+
+    <style>
+        :root {
+            --accent: #d97757;
+            --accent-dark: #c15f3f;
+            --ink: #1a1613;
+            --muted: #6b6259;
+            --bg: #faf7f3;
+            --card: #ffffff;
+            --line: #ece5dc;
+            --radius: 16px;
+            --shadow: 0 1px 2px rgba(26, 22, 19, .04), 0 12px 32px rgba(26, 22, 19, .07);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            background:
+                radial-gradient(900px 400px at 50% -20%, rgba(217, 119, 87, .25), transparent 60%),
+                linear-gradient(180deg, #221c17 0%, #2c241d 100%);
+            color: #fff;
+            text-align: center;
+            padding: 72px 0 80px;
+        }
+
+        .tick {
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-size: 30px;
+            margin: 0 auto 22px;
+            box-shadow: 0 10px 30px rgba(217, 119, 87, .4);
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 4.6vw, 42px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        .hero p {
+            color: #d8cec5;
+            font-size: clamp(16px, 2.2vw, 19px);
+            max-width: 48ch;
+            margin: 0 auto;
+        }
+
+        /* ---------- Downloads ---------- */
+        section.block {
+            padding: 64px 0;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h2.title {
+            text-align: center;
+            font-size: clamp(23px, 3.6vw, 31px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin-bottom: 12px;
+        }
+
+        p.lead {
+            text-align: center;
+            color: var(--muted);
+            max-width: 52ch;
+            margin: 0 auto 40px;
+            font-size: 16.5px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 760px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding-bottom: 22px;
+            transition: transform .15s ease, box-shadow .2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 2px 4px rgba(26, 22, 19, .05), 0 20px 44px rgba(26, 22, 19, .1);
+        }
+
+        .card .preview {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top center;
+            background: #f2ece5;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .card .body {
+            padding: 20px 22px 0;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .card p {
+            font-size: 14.5px;
+            color: var(--muted);
+            flex: 1;
+            margin-bottom: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 15.5px;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 11px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform .12s ease, background .2s ease;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 8px 22px rgba(217, 119, 87, .3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--accent);
+            color: var(--accent-dark);
+        }
+
+        .btn-outline:hover {
+            background: rgba(217, 119, 87, .08);
+        }
+
+        .card .btn {
+            width: calc(100% - 44px);
+            margin: 0 22px;
+        }
+
+        /* ---------- Next step ---------- */
+        .next {
+            background:
+                radial-gradient(700px 300px at 50% -30%, rgba(217, 119, 87, .2), transparent 60%),
+                linear-gradient(180deg, #221c17 0%, #2c241d 100%);
+            color: #fff;
+            border-radius: 22px;
+            padding: 44px 32px;
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .next .eyebrow {
+            color: var(--accent);
+        }
+
+        .next h2 {
+            color: #fff;
+            font-size: clamp(22px, 3.4vw, 29px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin-bottom: 12px;
+        }
+
+        .next p {
+            color: #d8cec5;
+            max-width: 50ch;
+            margin: 0 auto 26px;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 32px 0 44px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--accent-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer .socials {
+            margin-bottom: 12px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hero">
+        <div class="wrap">
+            <div class="tick">✓</div>
+            <h1>You're in. Here's your pack.</h1>
+            <p>All three PDFs are below - grab them now, and they're in your inbox too so
+                you can come back to them any time.</p>
+        </div>
+    </header>
+
+    <section class="block">
+        <div class="wrap">
+            <p class="eyebrow">Your downloads</p>
+            <h2 class="title">Three free PDFs</h2>
+            <p class="lead">Start with the cheat sheet. Keep it open in a second tab for your first week -
+                that's genuinely how I use it.</p>
+
+            <div class="cards">
+                <div class="card">
+                    <img class="preview" src="/claude-code/img/preview-cheat-sheet.png"
+                        alt="Preview of the Claude Code cheat sheet PDF" />
+                    <div class="body">
+                        <h3>Claude Code Cheat Sheet</h3>
+                        <p>Install, auth, slash commands, MCP, CLAUDE.md and the daily prompts - 2 pages.</p>
+                    </div>
+                    <a class="btn btn-primary" href="/claude-code/downloads/cheat-sheet.pdf" download>Download
+                        PDF</a>
+                </div>
+
+                <div class="card">
+                    <img class="preview" src="/claude-code/img/preview-templates.png"
+                        alt="Preview of the 5 CLAUDE.md templates PDF" />
+                    <div class="body">
+                        <h3>5 CLAUDE.md Templates</h3>
+                        <p>Ready-to-paste CLAUDE.md files so Claude follows your rules from the first prompt.
+                        </p>
+                    </div>
+                    <a class="btn btn-primary" href="/claude-code/downloads/templates.pdf" download>Download
+                        PDF</a>
+                </div>
+
+                <div class="card">
+                    <img class="preview" src="/claude-code/img/preview-prompts.png"
+                        alt="Preview of the 10 daily Claude Code prompts PDF" />
+                    <div class="body">
+                        <h3>10 Daily Prompts</h3>
+                        <p>The prompts I reach for every day - refactors, reviews, tests, debugging.</p>
+                    </div>
+                    <a class="btn btn-primary" href="/claude-code/downloads/prompts.pdf" download>Download
+                        PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block" style="padding-top: 0;">
+        <div class="wrap">
+            <div class="next">
+                <p class="eyebrow">One small favour</p>
+                <h2>Star the free course on GitHub</h2>
+                <p>The PDFs are the condensed version. The full thing is 15 modules and 9+ hours, free
+                    forever. If it helps you, a star helps someone else find it.</p>
+                <a class="btn btn-primary" href="https://github.com/koki7o/claude-code-for-beginners"
+                    target="_blank" rel="noopener noreferrer">★ Star the course</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <div class="socials">
+                <a href="/claude-code">Free resources</a>
+                <a href="https://github.com/koki7o/claude-code-for-beginners" target="_blank"
+                    rel="noopener noreferrer">Free course</a>
+                <a href="https://x.com/koki7o" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="mailto:inbox@thedevfounder.com">Email</a>
+                <a href="/">thedevfounder.com</a>
+            </div>
+            <div>© <span id="yr">2026</span> The Dev Founder</div>
+        </div>
+    </footer>
+
+    <script type="module">
+        document.getElementById('yr').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
