@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/claude-code/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/claude-code/favicon.ico" />
+    <link rel="apple-touch-icon" href="/claude-code/apple-touch-icon.png" />
+    <title>Master Claude Code — Free Resources | The Dev Founder</title>
+    <meta name="description"
+        content="Free Claude Code cheat sheet, CLAUDE.md templates, and the 10 prompts I use every day. From the creator of the 300+ star free Claude Code course." />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Master Claude Code — Free Resources" />
+    <meta property="og:description"
+        content="Cheat sheet, CLAUDE.md templates & 10 daily prompts. Free. From the creator of the 300+ star free course." />
+    <meta property="og:url" content="https://thedevfounder.com/claude-code" />
+    <meta property="og:image" content="https://thedevfounder.com/koki7o.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@koki7o" />
+
+    <style>
+        :root {
+            --accent: #d97757;
+            /* Claude / Anthropic warm coral */
+            --accent-dark: #c15f3f;
+            --ink: #1a1613;
+            --muted: #6b6259;
+            --bg: #faf7f3;
+            --card: #ffffff;
+            --line: #ece5dc;
+            --radius: 16px;
+            --shadow: 0 1px 2px rgba(26, 22, 19, .04), 0 12px 32px rgba(26, 22, 19, .07);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(1200px 500px at 15% -10%, rgba(217, 119, 87, .25), transparent 60%),
+                linear-gradient(180deg, #221c17 0%, #2c241d 100%);
+            color: #fff;
+            padding: 76px 0 84px;
+        }
+
+        .hero-grid {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1.18fr;
+            gap: 44px;
+            align-items: center;
+        }
+
+        .hero-media {
+            min-width: 0;
+        }
+
+        .hero-media .hero-shot {
+            transform: rotate(2.5deg) scale(1.06);
+            transition: transform .3s ease;
+        }
+
+        .hero-media .hero-shot:hover {
+            transform: rotate(0deg) scale(1.06);
+        }
+
+        @media (max-width: 860px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                text-align: center;
+            }
+
+            .hero-grid .cta-row {
+                justify-content: center;
+            }
+
+            .hero-grid .badge {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero h1,
+            .hero p.sub {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-media .hero-shot,
+            .hero-media .hero-shot:hover {
+                transform: none;
+            }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .2px;
+            color: #f3e6de;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .14);
+            padding: 7px 14px;
+            border-radius: 999px;
+            margin-bottom: 26px;
+        }
+
+        .badge .star {
+            color: var(--accent);
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 4.4vw, 46px);
+            line-height: 1.08;
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin: 0 0 18px;
+            max-width: 16ch;
+        }
+
+        .hero h1 .hl {
+            color: var(--accent);
+        }
+
+        .hero p.sub {
+            font-size: clamp(16px, 2.4vw, 19px);
+            color: #d8cec5;
+            max-width: 46ch;
+            margin: 0 0 32px;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 14px 26px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform .12s ease, background .2s ease, box-shadow .2s ease;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 8px 22px rgba(217, 119, 87, .35);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, .06);
+            border-color: rgba(255, 255, 255, .18);
+            color: #fff;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, .12);
+        }
+
+        .hero-shot {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, .45);
+        }
+
+        /* ---------- "In action" demo ---------- */
+        .demo-wrap {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .demo-frame {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            background: #1e1e2e;
+        }
+
+        .demo-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ---------- Section shell ---------- */
+        section.block {
+            padding: 72px 0;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h2.title {
+            text-align: center;
+            font-size: clamp(24px, 4vw, 34px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin-bottom: 12px;
+        }
+
+        p.lead {
+            text-align: center;
+            color: var(--muted);
+            max-width: 52ch;
+            margin: 0 auto 44px;
+            font-size: 17px;
+        }
+
+        /* ---------- Resource cards ---------- */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 760px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 0 0 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform .15s ease, box-shadow .2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 2px 4px rgba(26, 22, 19, .05), 0 20px 44px rgba(26, 22, 19, .1);
+        }
+
+        .card .preview {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top center;
+            background: #f2ece5;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .card .body {
+            padding: 22px 24px 0;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .card .ico {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            background: rgba(217, 119, 87, .12);
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -.01em;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: var(--muted);
+            flex: 1;
+        }
+
+        .card .tag {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-dark);
+        }
+
+        /* ---------- Signup / ConvertKit ---------- */
+        .signup {
+            background: linear-gradient(180deg, #fff 0%, #fbf6f2 100%);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+            padding: 44px 32px;
+            max-width: 620px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .signup h2 {
+            font-size: clamp(22px, 3.6vw, 30px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin-bottom: 10px;
+        }
+
+        .signup p {
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+
+        form.ck {
+            display: flex;
+            gap: 10px;
+            max-width: 460px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 520px) {
+            form.ck {
+                flex-direction: column;
+            }
+        }
+
+        form.ck input[type="email"] {
+            flex: 1;
+            font-size: 16px;
+            padding: 14px 16px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #fff;
+            outline: none;
+            transition: border .2s ease, box-shadow .2s ease;
+        }
+
+        form.ck input[type="email"]:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(217, 119, 87, .18);
+        }
+
+        form.ck button {
+            white-space: nowrap;
+        }
+
+        .form-note {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 14px;
+        }
+
+        .form-msg {
+            margin-top: 18px;
+            font-weight: 600;
+            font-size: 15px;
+            min-height: 22px;
+        }
+
+        .form-msg.ok {
+            color: #2f8f5b;
+        }
+
+        .form-msg.err {
+            color: #c0392b;
+        }
+
+        .is-hidden {
+            display: none !important;
+        }
+
+        /* ---------- Social proof ---------- */
+        .proof {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 22px 26px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .proof img {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .proof .txt {
+            text-align: left;
+            max-width: 40ch;
+        }
+
+        .proof .txt strong {
+            display: block;
+            font-size: 15px;
+        }
+
+        .proof .txt span {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* ---------- Deeper / paid ---------- */
+        .deeper {
+            text-align: center;
+        }
+
+        .deeper .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--accent);
+            color: var(--accent-dark);
+        }
+
+        .deeper .btn-outline:hover {
+            background: rgba(217, 119, 87, .08);
+        }
+
+        .price-hint {
+            font-size: 14px;
+            color: var(--muted);
+            margin-top: 14px;
+        }
+
+        /* ---------- Course success band ---------- */
+        .success {
+            background:
+                radial-gradient(900px 400px at 50% -20%, rgba(217, 119, 87, .22), transparent 60%),
+                linear-gradient(180deg, #221c17 0%, #2c241d 100%);
+            color: #fff;
+            border-radius: 22px;
+            padding: 46px 32px;
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .success .eyebrow {
+            color: var(--accent);
+        }
+
+        .success h2 {
+            color: #fff;
+        }
+
+        .success p.sub2 {
+            color: #d8cec5;
+            max-width: 54ch;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 44px;
+            flex-wrap: wrap;
+            margin: 30px 0 28px;
+        }
+
+        .stat b {
+            display: block;
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -.02em;
+            line-height: 1.1;
+        }
+
+        .stat span {
+            font-size: 13.5px;
+            color: #d8cec5;
+        }
+
+        /* ---------- Product showcase ---------- */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        @media (max-width: 760px) {
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .product {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+            transition: transform .15s ease, box-shadow .2s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 2px 4px rgba(26, 22, 19, .05), 0 20px 44px rgba(26, 22, 19, .1);
+        }
+
+        .product .logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 11px;
+            display: grid;
+            place-items: center;
+            font-size: 21px;
+            margin-bottom: 14px;
+        }
+
+        .product h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 2px;
+            letter-spacing: -.01em;
+        }
+
+        .product .dom {
+            font-size: 12.5px;
+            color: var(--accent-dark);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .product p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* ---------- Pricing ---------- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: stretch;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 820px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin: 8px auto 0;
+            }
+        }
+
+        .tier {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 30px 26px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            position: relative;
+        }
+
+        .tier.featured {
+            border: 2px solid var(--accent);
+            box-shadow: 0 2px 4px rgba(26, 22, 19, .05), 0 24px 50px rgba(217, 119, 87, .22);
+        }
+
+        .tier .flag {
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .tier h3 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .tier .desc {
+            font-size: 14px;
+            color: var(--muted);
+            min-height: 40px;
+            margin-bottom: 14px;
+        }
+
+        .tier .price {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin-bottom: 2px;
+        }
+
+        .tier .price small {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .tier ul {
+            list-style: none;
+            margin: 14px 0 22px;
+            flex: 1;
+        }
+
+        .tier li {
+            font-size: 14px;
+            padding: 5px 0 5px 24px;
+            position: relative;
+            color: var(--ink);
+        }
+
+        .tier li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .tier .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: auto;
+        }
+
+        .tier .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--accent);
+            color: var(--accent-dark);
+        }
+
+        .tier .btn-outline:hover {
+            background: rgba(217, 119, 87, .08);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 34px 0 46px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--accent-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer .socials {
+            margin-bottom: 12px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============ HERO ============ -->
+    <header class="hero">
+        <div class="hero-grid">
+            <div class="hero-copy">
+                <span class="badge"><span class="star">★</span> From the creator of the 300+ star free
+                    course</span>
+                <h1>Master <span class="hl">Claude Code</span> — the free resources I actually use</h1>
+                <p class="sub">Grab the 2-page cheat sheet, 5 CLAUDE.md templates, and the 10 prompts I use
+                    every day. One email, three free PDFs.</p>
+                <div class="cta-row">
+                    <a href="#get" class="btn btn-primary">Get the free pack →</a>
+                    <a href="#pricing" class="btn btn-ghost">See the paid modules</a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <img class="hero-shot" src="/claude-code/img/cc-banner.webp"
+                    alt="A Claude Code session in the terminal exploring a codebase" />
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ RESOURCES ============ -->
+    <section class="block">
+        <div class="wrap">
+            <p class="eyebrow">What you get</p>
+            <h2 class="title">Three free downloads</h2>
+            <p class="lead">Everything condensed from my 9+ hour free course into things you'll keep open in a
+                second tab.</p>
+            <div class="cards">
+                <div class="card">
+                    <img class="preview" src="/claude-code/img/preview-cheat-sheet.png"
+                        alt="Preview of the Claude Code cheat sheet PDF" loading="lazy" />
+                    <div class="body">
+                        <h3>Claude Code Cheat Sheet</h3>
+                        <p>A 2-page reference poster: install, auth, slash commands, MCP, CLAUDE.md and the
+                            daily prompts — all on one page.</p>
+                        <span class="tag">PDF · 2 pages</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="preview" src="/claude-code/img/preview-templates.png"
+                        alt="Preview of the 5 CLAUDE.md templates PDF" loading="lazy" />
+                    <div class="body">
+                        <h3>5 CLAUDE.md Templates</h3>
+                        <p>Ready-to-paste CLAUDE.md files for popular stacks so Claude follows your rules from
+                            the first prompt.</p>
+                        <span class="tag">PDF · 5 templates</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="preview" src="/claude-code/img/preview-prompts.png"
+                        alt="Preview of the 10 daily Claude Code prompts PDF" loading="lazy" />
+                    <div class="body">
+                        <h3>10 Daily Prompts</h3>
+                        <p>The exact prompts I reach for every day — refactors, reviews, tests, debugging —
+                            with why they work.</p>
+                        <span class="tag">PDF · 10 prompts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ EMAIL CAPTURE ============ -->
+    <section class="block" id="get" style="padding-top: 8px;">
+        <div class="wrap">
+            <div class="signup">
+                <h2>Send me the free pack</h2>
+                <p>Enter your email and I'll send all three PDFs straight to your inbox.</p>
+
+                <!--
+          ┌─────────────────────────────────────────────────────────────────┐
+          │  CONVERTKIT SETUP — replace YOUR_FORM_ID below with the numeric   │
+          │  form ID from your ConvertKit (Kit) account.                      │
+          │                                                                   │
+          │  Find it: Kit dashboard → Grow → Landing Pages & Forms → your     │
+          │  form → the URL / embed shows a number like 1234567.              │
+          │                                                                   │
+          │  Paste that number in data-ck-form-id — nothing else to change.   │
+          └─────────────────────────────────────────────────────────────────┘
+        -->
+                <form class="ck" id="ck-form" data-ck-form-id="YOUR_FORM_ID" method="post" novalidate>
+                    <input type="email" name="email_address" placeholder="you@example.com" required
+                        autocomplete="email" aria-label="Email address" />
+                    <button type="submit" class="btn btn-primary" id="ck-submit">Send the PDFs →</button>
+                </form>
+
+                <p class="form-note">No spam. Unsubscribe anytime. You'll also get occasional Claude Code
+                    tips.</p>
+                <p class="form-msg" id="ck-msg" role="status" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SEE IT IN ACTION ============ -->
+    <section class="block" style="padding-top: 0;">
+        <div class="wrap">
+            <p class="eyebrow">See it in action</p>
+            <h2 class="title">One prompt. Real work done.</h2>
+            <p class="lead">Claude Code lives in your terminal — you describe what you want, it explores,
+                edits and ships. This is exactly what the course teaches you to do.</p>
+            <div class="demo-wrap">
+                <div class="demo-frame">
+                    <img src="/claude-code/img/cc-demo.gif" loading="lazy"
+                        alt="Animated demo of Claude Code running in a terminal" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ COURSE SUCCESS BAND ============ -->
+    <section class="block" style="padding-top: 0;">
+        <div class="wrap">
+            <div class="success">
+                <p class="eyebrow">Not just another tutorial</p>
+                <h2 class="title" style="margin-bottom: 8px;">A free course thousands of developers trust</h2>
+                <p class="sub2">15 modules, 9+ hours, from your very first install to shipping in production —
+                    and it's 100% free, forever. Developers keep starring it because it actually gets them
+                    building.</p>
+                <div class="stats">
+                    <div class="stat"><b>300+</b><span>GitHub stars</span></div>
+                    <div class="stat"><b>15</b><span>modules</span></div>
+                    <div class="stat"><b>9+ hrs</b><span>of content</span></div>
+                    <div class="stat"><b>$0</b><span>always free</span></div>
+                </div>
+                <a href="https://github.com/koki7o/claude-code-for-beginners" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-primary">★ Star the free course on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BUILT WITH CLAUDE CODE ============ -->
+    <section class="block" style="padding-top: 0;">
+        <div class="wrap">
+            <p class="eyebrow">Proof it works</p>
+            <h2 class="title">I don't just teach it — I ship with it</h2>
+            <p class="lead">Real, live products I've designed and built with Claude Code. The course teaches
+                the exact workflow behind them.</p>
+            <div class="showcase-grid">
+                <a class="product" href="https://aicofounders.co" target="_blank" rel="noopener noreferrer">
+                    <div class="logo" style="background: rgba(217,119,87,.14);">🤝</div>
+                    <h3>AI Cofounders</h3>
+                    <div class="dom">aicofounders.co</div>
+                    <p>AI cofounders for solo founders — a thinking partner for every great idea, made of
+                        code.</p>
+                </a>
+                <a class="product" href="https://www.wiwo.world" target="_blank" rel="noopener noreferrer">
+                    <div class="logo" style="background: rgba(46,143,91,.14);">🗺️</div>
+                    <h3>Wiwo</h3>
+                    <div class="dom">wiwo.world</div>
+                    <p>Interactive, map-based events web app. Built end to end — founder, CEO and CTO in one.
+                    </p>
+                </a>
+                <a class="product" href="https://gitscroll.dev/" target="_blank" rel="noopener noreferrer">
+                    <div class="logo" style="background: rgba(124,92,196,.16);">📜</div>
+                    <h3>GitScroll</h3>
+                    <div class="dom">gitscroll.dev</div>
+                    <p>Doomscroll through GitHub repos — an addictive way to discover great open source.</p>
+                </a>
+                <a class="product" href="https://moltplace.net" target="_blank" rel="noopener noreferrer">
+                    <div class="logo" style="background: rgba(26,22,19,.10);">🤖</div>
+                    <h3>Moltplace</h3>
+                    <div class="dom">moltplace.net</div>
+                    <p>A marketplace where AI agents hire each other to get work done.</p>
+                </a>
+                <a class="product" href="https://github.com/koki7o/mcp-framework" target="_blank"
+                    rel="noopener noreferrer">
+                    <div class="logo" style="background: rgba(222,113,60,.16);">🦀</div>
+                    <h3>MCP Framework</h3>
+                    <div class="dom">github.com/koki7o</div>
+                    <p>A Model Context Protocol framework written in Rust — for building your own MCP servers.
+                    </p>
+                </a>
+                <a class="product" href="https://time-portal.vercel.app/" target="_blank"
+                    rel="noopener noreferrer">
+                    <div class="logo" style="background: rgba(58,130,196,.16);">⏳</div>
+                    <h3>Time Portal</h3>
+                    <div class="dom">time-portal.vercel.app</div>
+                    <p>Doomscroll back in time — wander through history one moment at a time.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PRICING (paid modules) ============ -->
+    <section class="block" id="pricing" style="padding-top: 0;">
+        <div class="wrap">
+            <p class="eyebrow">Go further</p>
+            <h2 class="title">Ready to build like this?</h2>
+            <p class="lead">The free course makes you fluent. These take you to production — the enterprise
+                patterns and battle-tested project templates I use to ship the products above.</p>
+            <div class="pricing-grid">
+                <div class="tier">
+                    <h3>Advanced Modules</h3>
+                    <div class="desc">8 enterprise-grade modules beyond the free course.</div>
+                    <div class="price">$29<small>.99</small></div>
+                    <ul>
+                        <li>Production deployment at scale</li>
+                        <li>Multi-agent systems & orchestration</li>
+                        <li>Custom MCP server development</li>
+                        <li>Hooks, internals & pro workflows</li>
+                    </ul>
+                    <a href="https://payhip.com/b/8E107" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-outline">Get Advanced Modules</a>
+                </div>
+                <div class="tier featured">
+                    <span class="flag">Best value · save $10</span>
+                    <h3>Complete Bundle</h3>
+                    <div class="desc">Everything — both the modules and the projects.</div>
+                    <div class="price">$59<small>.99</small></div>
+                    <ul>
+                        <li>All 8 Advanced Modules</li>
+                        <li>All 11 Real Project templates</li>
+                        <li>Every future update included</li>
+                        <li>The complete production toolkit</li>
+                    </ul>
+                    <a href="https://payhip.com/b/S8nU1" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-primary">Get the Complete Bundle</a>
+                </div>
+                <div class="tier">
+                    <h3>Real Projects Pack</h3>
+                    <div class="desc">11 real, buildable project templates.</div>
+                    <div class="price">$39<small>.99</small></div>
+                    <ul>
+                        <li>Full-stack SaaS boilerplate</li>
+                        <li>AI agent coordinator</li>
+                        <li>CLI tools, API clients & more</li>
+                        <li>Copy, build and ship faster</li>
+                    </ul>
+                    <a href="https://payhip.com/b/dFXWO" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-outline">Get the Projects Pack</a>
+                </div>
+            </div>
+            <p class="price-hint" style="text-align:center;">One-time payment · instant download on Payhip ·
+                lifetime access</p>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT / SOCIAL PROOF ============ -->
+    <section class="block" style="padding-top: 0;">
+        <div class="wrap">
+            <div class="proof">
+                <img src="/koki7o.jpg" alt="Kyle, The Dev Founder" />
+                <div class="txt">
+                    <strong>Built by Kyle · @koki7o</strong>
+                    <span>Creator of the free 15-module Claude Code course (300+ stars) and builder of
+                        aicofounders.co, wiwo.world, gitscroll.dev, moltplace.net and mcp-framework — all
+                        shipped with Claude Code.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="wrap">
+            <div class="socials">
+                <a href="https://github.com/koki7o/claude-code-for-beginners" target="_blank"
+                    rel="noopener noreferrer">Free course</a>
+                <a href="#pricing">Paid modules</a>
+                <a href="https://x.com/koki7o" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://www.threads.net/@thedevfounder" target="_blank"
+                    rel="noopener noreferrer">Threads</a>
+                <a href="mailto:inbox@thedevfounder.com">Email</a>
+                <a href="/">thedevfounder.com</a>
+            </div>
+            <div>© <span id="yr">2026</span> The Dev Founder · Made with Claude Code</div>
+        </div>
+    </footer>
+
+    <script type="module">
+        // Footer year
+        document.getElementById('yr').textContent = new Date().getFullYear();
+
+        const form = document.getElementById('ck-form');
+        const msg = document.getElementById('ck-msg');
+        const btn = document.getElementById('ck-submit');
+        const formId = form.getAttribute('data-ck-form-id');
+        const configured = formId && formId !== 'YOUR_FORM_ID';
+        const endpoint = 'https://app.convertkit.com/forms/' + formId + '/subscriptions';
+
+        function setMsg(text, kind) {
+            msg.textContent = text;
+            msg.className = 'form-msg' + (kind ? ' ' + kind : '');
+        }
+
+        if (!configured) {
+            console.warn('[claude-code] ConvertKit form ID not set. Replace YOUR_FORM_ID in claude-code/index.html.');
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = form.email_address.value.trim();
+            if (!email || !email.includes('@')) {
+                setMsg('Please enter a valid email address.', 'err');
+                return;
+            }
+            if (!configured) {
+                setMsg('Almost there — the form isn’t connected yet. Add your ConvertKit form ID to go live.', 'err');
+                return;
+            }
+
+            const original = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+            setMsg('', '');
+
+            try {
+                const res = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({ email_address: email }),
+                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                form.classList.add('is-hidden');
+                setMsg('🎉 Check your inbox — your free Claude Code pack is on its way!', 'ok');
+            } catch (err) {
+                console.error(err);
+                setMsg('Something went wrong. Please try again in a moment.', 'err');
+                btn.disabled = false;
+                btn.textContent = original;
+            }
+        });
+    </script>
+</body>
+
+</html>
