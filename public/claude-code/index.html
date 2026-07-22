@@ -815,7 +815,7 @@
                     <button type="submit" class="btn btn-primary" id="ck-submit">Send the PDFs →</button>
                 </form>
 
-                <p class="form-note">No spam. Unsubscribe anytime. You'll also get occasional Claude Code
+                <p class="form-note" id="ck-note">No spam. Unsubscribe anytime. You'll also get occasional Claude Code
                     tips.</p>
                 <p class="form-msg" id="ck-msg" role="status" aria-live="polite"></p>
             </div>
@@ -922,7 +922,7 @@
             <div class="pricing-grid">
                 <div class="tier">
                     <h3>Advanced Modules</h3>
-                    <div class="desc">8 enterprise-grade modules beyond the free course.</div>
+                    <div class="desc">11 enterprise-grade modules beyond the free course.</div>
                     <div class="price">$29<small>.99</small></div>
                     <ul>
                         <li>Production deployment at scale</li>
@@ -939,8 +939,8 @@
                     <div class="desc">Everything - both the modules and the projects.</div>
                     <div class="price">$59<small>.99</small></div>
                     <ul>
-                        <li>All 8 Advanced Modules</li>
-                        <li>All 11 Real Project templates</li>
+                        <li>All 11 Advanced Modules</li>
+                        <li>All 13 Real Project templates</li>
                         <li>Every future update included</li>
                         <li>The complete production toolkit</li>
                     </ul>
@@ -949,7 +949,7 @@
                 </div>
                 <div class="tier">
                     <h3>Real Projects Pack</h3>
-                    <div class="desc">11 real, buildable project templates.</div>
+                    <div class="desc">13 real, buildable project templates.</div>
                     <div class="price">$39<small>.99</small></div>
                     <ul>
                         <li>Full-stack SaaS boilerplate</li>
@@ -1043,7 +1043,8 @@
                 });
                 if (!res.ok) throw new Error('HTTP ' + res.status);
                 form.classList.add('is-hidden');
-                setMsg('🎉 Check your inbox - your free Claude Code pack is on its way!', 'ok');
+                document.getElementById('ck-note')?.classList.add('is-hidden');
+                setMsg('🎉 Check your inbox - your free Claude Code pack is on its way! No sign of it? Have a look in your spam or promotions folder.', 'ok');
             } catch (err) {
                 console.error(err);
                 setMsg('Something went wrong. Please try again in a moment.', 'err');
