@@ -350,6 +350,49 @@
             color: var(--accent-dark);
         }
 
+        /* ---------- Why now ---------- */
+        .whynow {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 760px) {
+            .whynow {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .wn-col {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 26px 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .wn-col .wn-ico {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .wn-col h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -.01em;
+        }
+
+        .wn-col p {
+            font-size: 14.5px;
+            color: var(--muted);
+        }
+
+        .lead strong {
+            color: var(--ink);
+        }
+
         /* ---------- Signup / ConvertKit ---------- */
         .signup {
             background: linear-gradient(180deg, #fff 0%, #fbf6f2 100%);
@@ -834,6 +877,42 @@
                     <img src="/claude-code/img/cc-demo.gif" loading="lazy"
                         alt="Animated demo of Claude Code running in a terminal" />
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY NOW ============ -->
+    <section class="block" style="padding-top: 0;">
+        <div class="wrap">
+            <p class="eyebrow">Why now</p>
+            <h2 class="title">The way software gets built already changed</h2>
+            <p class="lead">The developers shipping the most right now aren't the ones typing the fastest -
+                they learned to <em>direct</em> AI instead of competing with it. That gap widens every month,
+                and it compounds.</p>
+            <div class="whynow">
+                <div class="wn-col">
+                    <div class="wn-ico">🐢</div>
+                    <h3>Without it</h3>
+                    <p>Still writing every line by hand, hitting the same walls, wondering how everyone else
+                        ships so fast.</p>
+                </div>
+                <div class="wn-col">
+                    <div class="wn-ico">🚀</div>
+                    <h3>With it</h3>
+                    <p>Describe the outcome, review the work, ship in an afternoon what used to take a week.</p>
+                </div>
+                <div class="wn-col">
+                    <div class="wn-ico">📈</div>
+                    <h3>The gap</h3>
+                    <p>Compounds daily. Every project you build with AI is one the "I'll learn it later" crowd
+                        didn't.</p>
+                </div>
+            </div>
+            <p class="lead" style="margin: 36px auto 0;"><strong>You don't need to be early to the whole AI
+                    wave - you just can't afford to be late to this.</strong> It's free, self-paced, and the
+                first module takes 20 minutes.</p>
+            <div style="text-align: center; margin-top: 22px;">
+                <a href="#get" class="btn btn-primary">Get the free pack →</a>
             </div>
         </div>
     </section>
