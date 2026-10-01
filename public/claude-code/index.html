@@ -9,13 +9,13 @@
     <link rel="apple-touch-icon" href="/claude-code/apple-touch-icon.png" />
     <title>Master Claude Code - Free Resources | The Dev Founder</title>
     <meta name="description"
-        content="Free Claude Code cheat sheet, CLAUDE.md templates, and the 10 prompts I use every day. From the creator of the 300+ star free Claude Code course." />
+        content="Free Claude Code cheat sheet, CLAUDE.md templates, and the 10 prompts I use every day. From the creator of the 400+ star free Claude Code course." />
 
     <!-- Open Graph / social preview -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Master Claude Code - Free Resources" />
     <meta property="og:description"
-        content="Cheat sheet, CLAUDE.md templates & 10 daily prompts. Free. From the creator of the 300+ star free course." />
+        content="Cheat sheet, CLAUDE.md templates & 10 daily prompts. Free. From the creator of the 400+ star free course." />
     <meta property="og:url" content="https://thedevfounder.com/claude-code" />
     <meta property="og:image" content="https://thedevfounder.com/koki7o.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -164,6 +164,31 @@
             color: #d8cec5;
             max-width: 46ch;
             margin: 0 0 32px;
+        }
+
+        /* Mobile centering must come after the base margins above, or they win */
+        @media (max-width: 860px) {
+            .hero h1,
+            .hero p.sub {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Even line lengths (no lonely last word), and never split the brand name */
+        .hero h1 {
+            text-wrap: balance;
+        }
+
+        .hero h1 .hl {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 400px) {
+            .badge {
+                font-size: 11.5px;
+                padding: 7px 12px;
+            }
         }
 
         .cta-row {
@@ -784,9 +809,9 @@
     <header class="hero">
         <div class="hero-grid">
             <div class="hero-copy">
-                <span class="badge"><span class="star">★</span> From the creator of the 300+ star free
+                <span class="badge"><span class="star">★</span> From the creator of the 400+ star free
                     course</span>
-                <h1>Master <span class="hl">Claude Code</span> - the free resources I actually use</h1>
+                <h1>Master <span class="hl">Claude Code</span>&nbsp;- the free resources I actually use</h1>
                 <p class="sub">Grab the 2-page cheat sheet, 5 CLAUDE.md templates, and the 10 prompts I use
                     every day. One email, three free PDFs.</p>
                 <div class="cta-row">
@@ -927,7 +952,7 @@
                     and it's 100% free, forever. Developers keep starring it because it actually gets them
                     building.</p>
                 <div class="stats">
-                    <div class="stat"><b>300+</b><span>GitHub stars</span></div>
+                    <div class="stat"><b>400+</b><span>GitHub stars</span></div>
                     <div class="stat"><b>15</b><span>modules</span></div>
                     <div class="stat"><b>9+ hrs</b><span>of content</span></div>
                     <div class="stat"><b>$0</b><span>always free</span></div>
@@ -1001,7 +1026,7 @@
             <div class="pricing-grid">
                 <div class="tier">
                     <h3>Advanced Modules</h3>
-                    <div class="desc">12 enterprise-grade modules beyond the free course.</div>
+                    <div class="desc">13 enterprise-grade modules beyond the free course.</div>
                     <div class="price">$29<small>.99</small></div>
                     <ul>
                         <li>Production deployment at scale</li>
@@ -1018,7 +1043,7 @@
                     <div class="desc">Everything - both the modules and the projects.</div>
                     <div class="price">$59<small>.99</small></div>
                     <ul>
-                        <li>All 12 Advanced Modules</li>
+                        <li>All 13 Advanced Modules</li>
                         <li>All 14 Real Project templates</li>
                         <li>Every future update included</li>
                         <li>The complete production toolkit</li>
@@ -1052,7 +1077,7 @@
                 <img src="/koki7o.jpg" alt="Kyle, The Dev Founder" />
                 <div class="txt">
                     <strong>Built by Kyle · @koki7o</strong>
-                    <span>Creator of the free 15-module Claude Code course (300+ stars) and builder of
+                    <span>Creator of the free 15-module Claude Code course (400+ stars) and builder of
                         aicofounders.co, wiwo.world, gitscroll.dev, moltplace.net and mcp-framework - all
                         shipped with Claude Code.</span>
                 </div>
