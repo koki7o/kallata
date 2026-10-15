@@ -1146,6 +1146,17 @@
                     body: JSON.stringify({ email_address: email }),
                 });
                 if (!res.ok) throw new Error('HTTP ' + res.status);
+                // Count the signup in Vercel Web Analytics. Custom events need a Pro
+                // plan, but the analytics script logs a page view on every pushState,
+                // so /claude-code/subscribed shows up under Pages on the free plan too.
+                // replaceState (not tracked) puts the real URL back right after, so a
+                // reload still lands on this page.
+                try {
+                    const here = location.href;
+                    history.pushState({}, '', location.origin + '/claude-code/subscribed');
+                    history.replaceState({}, '', here);
+                    window.va && window.va('event', { name: 'Signup' });
+                } catch (_) { }
                 form.classList.add('is-hidden');
                 document.getElementById('ck-note')?.classList.add('is-hidden');
                 setMsg('🎉 Check your inbox - your free Claude Code pack is on its way! No sign of it? Have a look in your spam or promotions folder.', 'ok');
